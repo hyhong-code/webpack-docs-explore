@@ -1,9 +1,10 @@
-class AlertSerive {
+import { inputsAreValid } from "./utils/inputs-are-valid";
+export class AlertService {
   constructor() {
     this.errorBox = document.getElementById("error");
   }
 
-  handleAdditionError = (inputs, numbers) => {
+  handleAdditionError(inputs, numbers) {
     const fullMessage = inputs.reduce((message, str, index) => {
       if (inputsAreValid(numbers[index])) {
         return message + "";
@@ -14,9 +15,9 @@ class AlertSerive {
 
     this.errorBox.classList.remove("invisible");
     this.errorBox.innerText = fullMessage;
-  };
+  }
 
-  hideErrors = () => {
+  hideErrors() {
     this.errorBox.classList.add("invisible");
-  };
+  }
 }
