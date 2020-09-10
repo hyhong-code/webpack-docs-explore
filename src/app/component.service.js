@@ -14,7 +14,7 @@ class ComponentService {
     this.resultDiv.innerText = str;
   }
 
-  onclick(cb) {
+  onClick(cb) {
     this.addValuesButton.addEventListener("click", cb);
   }
 }
