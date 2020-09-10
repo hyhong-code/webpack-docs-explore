@@ -9,4 +9,13 @@ module.exports = {
     // Resolve an absolute path to ./dist
     path: path.resolve(__dirname, "dist"),
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        // Translate css to js first, then apply style to DOM
+        use: ["style-loader", "css-loader"], // Array order is in reverse ***
+      },
+    ],
+  },
 };
