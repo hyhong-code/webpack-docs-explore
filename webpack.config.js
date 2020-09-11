@@ -1,4 +1,5 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development", // dev or prod
@@ -8,10 +9,16 @@ module.exports = {
   entry: "./src/index.js",
 
   output: {
-    filename: "main.js",
-    // Resolve an absolute path to ./dist
-    path: path.resolve(__dirname, "dist"),
+    filename: "main.[contentHash].js", // [contentHash] -> cache busting (gen new hash everytime code changes)
+    path: path.resolve(__dirname, "dist"), // Resolve an absolute path to ./dist
   },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      // Helps generate html file with script that has hash name
+      template: "./src/template.html",
+    }),
+  ],
 
   module: {
     rules: [
