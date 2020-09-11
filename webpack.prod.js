@@ -10,7 +10,7 @@ module.exports = merge(common, {
   // devtool: "none", // disable eval()
 
   output: {
-    filename: "main.[contentHash].js", // [contentHash] -> cache busting (gen new hash everytime code changes)
+    filename: "[name].[contentHash].bundle.js", // [contentHash] -> cache busting (gen new hash everytime code changes)
     path: path.resolve(__dirname, "dist"), // Resolve an absolute path to ./dist
   },
   plugins: [

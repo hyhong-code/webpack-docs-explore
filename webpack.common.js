@@ -4,7 +4,11 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   // devtool: "none", // disable eval()
 
-  entry: "./src/index.js",
+  entry: {
+    // Multiple entries
+    main: "./src/index.js",
+    vendor: "./src/vendor.js",
+  },
 
   plugins: [
     new HtmlWebpackPlugin({
