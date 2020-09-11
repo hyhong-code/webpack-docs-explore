@@ -2,16 +2,9 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: "development", // dev or prod
-
   // devtool: "none", // disable eval()
 
   entry: "./src/index.js",
-
-  output: {
-    filename: "main.[contentHash].js", // [contentHash] -> cache busting (gen new hash everytime code changes)
-    path: path.resolve(__dirname, "dist"), // Resolve an absolute path to ./dist
-  },
 
   plugins: [
     new HtmlWebpackPlugin({
