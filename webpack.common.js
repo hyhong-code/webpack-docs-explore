@@ -31,6 +31,26 @@ module.exports = {
           "sass-loader", // 1. scss -> css
         ],
       },
+
+      // HTML config
+      {
+        test: /\.html$/,
+        use: [
+          "html-loader", // Copy assets needed for template.html into dist folder
+        ],
+      },
+
+      // Assets
+      {
+        test: /\.(svg|png|jpg|gif)$/,
+        use: {
+          loader: "file-loader", // Emits files into dist/imgs
+          options: {
+            name: "[name].[hash].[ext]",
+            outputPath: "imgs",
+          },
+        },
+      },
     ],
   },
 };
